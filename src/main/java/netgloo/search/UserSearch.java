@@ -16,25 +16,16 @@ import org.springframework.stereotype.Repository;
  * Search methods for the entity User using Hibernate search.
  * The Transactional annotation ensure that transactions will be opened and
  * closed at the beginning and at the end of each method.
- * 
- * @author netgloo
  */
 @Repository
 @Transactional
 public class UserSearch {
 
-  // ------------------------
-  // PRIVATE FIELDS
-  // ------------------------
-  
   // Spring will inject here the entity manager object
   @PersistenceContext
   private EntityManager entityManager;
 
 
-  // ------------------------
-  // PUBLIC METHODS
-  // ------------------------
   
   /**
    * A basic search for the entity User. The search is done by exact match per
@@ -72,6 +63,4 @@ public class UserSearch {
     
     return results;
   } // method search
-
-
 } // class
