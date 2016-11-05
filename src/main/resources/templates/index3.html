@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8"/>
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="http://caibaojian.com/bootstrap/assets/css/bootstrap.css"/>
+</head>
+<body>
+<div class="page-header" align="center">
+<h1>Baioogle</h1>
+</div>
+
+	<!-- Button to trigger modal -->
+<div align="center">
+<form action="search" method="post">
+<input type="text" name="q" id="q" placehold="在这里搜索"/>
+<a href="#myModal" role="button" class="btn" id="openBtn" type="submit">搜索</a>
+</form>
+</div>
+
+
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Modal header</h3>
+  </div>
+  <div class="modal-body">
+
+      <ol>
+          <li th:each="users : ${searchResults}">
+              <b><span th:text="${users.name}"></span></b> -
+              <span th:text="${users.city}"></span> -
+              <span th:text="${users.email}"></span>
+          </li>
+      </ol>
+  
+  <p th:if="${searchResults.isEmpty()}">
+    <strong>Hint no results</strong>: the query like"<a href='/index?q=amy'>amy</a>"
+    should return some results.
+  </p>
+  
+  <br />
+  <hr />
+  Proudly provided by Charm
+ 
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+   
+  </div>
+</div>
+<script type='text/javascript' src='http://libs.baidu.com/jquery/1.9.1/jquery.min.js?ver=lastest'></script>
+	<script type="text/javascript" src="http://caibaojian.com/bootstrap/assets/js/bootstrap-modal.js"></script>
+	<script type="text/javascript">
+
+	$('#openBtn').click(function(){     
+		$('#myModal').modal({show:true}) 
+	});
+	</script>
+</body>
+</html>

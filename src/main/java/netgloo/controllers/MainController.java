@@ -12,24 +12,13 @@ import java.util.List;
 
 /**
  * MainController class
- * 
- * @author netgloo
  */
 @Controller
 public class MainController {
 
-  // ------------------------
-  // PRIVATE FIELDS
-  // ------------------------
-
   // Inject the UserSearch object
   @Autowired
   private UserSearch userSearch;
-
-
-  // ------------------------
-  // PUBLIC METHODS
-  // ------------------------
 
   /**
    * Index main page.

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="icon" href="favicon.ico"/>
+    <title>Baigle</title>
+
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="http://caibaojian.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet"/>
+    <!-- Bootstrap theme -->
+    <link href="dist/css/bootstrap-theme.min.css" rel="stylesheet"/>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="js/ie-emulation-modes-warning.js"></script>
+    <script type="text/javascript" src="dist/js/jquery-3.1.1.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    
+
+      <div class="container">
+        <div class="page-header">
+          <h1 align="center">Baigle</h1>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form" role="form" align="center" action="search" method="post"/>
+            <div class="form-group">
+              <input type="text" id="q" name="q" placeholder="在这里搜索" class="from-control input-lg"/>
+            </div>
+            <a href="search.html" role="button" type="submit" id="openBtn" class="btn btn-lg btn-primary">搜索</a>
+            <button type="submit" name="cancel" class="btn btn-lg btn-primary" onclick="javascript:history.back(-1);">取消</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+
+
+        <div id="myModel" class="modal hide fade in" aria-labelledby="myModalledby" aria-hidden="false" style="display:block;" role="dialog" tabIndex="-1">
+          <div class="modal-header"><button class="close" type="button" data-dismiss="modal" aria-hidden="true">X</button>
+            <h3 id="myModalLabel">搜索结果</h3>
+          </div>
+          <div class="modal-body">
+          <iframe style="zoom:0.6;" height="700" src="/search.html" frameborder="0" width="99.6%" name="iframe_a" ></iframe>
+          </div>
+          <div class="modal-footer">
+            ::before
+            <button class="btn btn-primary" data-dismiss="modal">关闭</button>
+            ::after
+          </div>
+        </div>
+      </div>
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js?ver=lastest"></script>
+    <script type="text/javascript" src="http://caibaojian.com/bootstrap/assets/js/bootstrap-modal.js"></script>
+    <script type="text/javascript">
+        var frameSrc = "search.html"
+        $('#openBtn').click(function(){
+          $('#myModel').on('show',function(){
+            $('iframe').attr("src",frameSrc);
+          });
+
+          $('#myModel').modal({show:true})
+        });
+    </script>
+  </body>
+</html>

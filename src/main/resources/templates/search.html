@@ -2,29 +2,34 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  <title>Hibernate Search | Netgloo Blog</title>
+  <title>Baigle Search | tech and science </title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 
 <body>
-  
+
+<!--<table class="table table-hover">-->
+  <!--<tr th:each="users : ${searchResults}"><td><b><span th:text="${users.name}"></span></b>      </td><td><span th:text="${users.city}"></span> </td><td><span th:text="${users.email}"></span></td></tr>-->
+
+<!--</table>-->
+
   <ol>
-    <li th:each="user : ${searchResults}">
-      <b><span th:text="${user.name}"></span></b> - 
-      <span th:text="${user.city}"></span> -
-      <span th:text="${user.email}"></span>
+    <li th:each="users : ${searchResults}">
+      <b><span th:text="${users.name}"></span></b> -
+      <span th:text="${users.city}"></span> -
+      <span th:text="${users.email}"></span>
     </li>
   </ol>
   
   <p th:if="${searchResults.isEmpty()}">
-    <strong>Hint</strong>: the query "<a href='/search?q=amy'>amy</a>" 
+    <strong>Hint no results</strong>: the query like"<a href='/search?q=amy'>amy</a>"
     should return some results.
   </p>
   
   <br />
   <hr />
-  Proudly handcrafted by
-  <a href='http://netgloo.com/en'>Netgloo</a>
+  Proudly provided by
+  <a >charm</a>
 
 </body>
 

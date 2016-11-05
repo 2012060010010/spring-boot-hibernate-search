@@ -1,7 +1,7 @@
 insert into users(id, name, email, city) values (1, "Amy Henderson", "ahenderson@gmail.com", "Oklahoma City");
 insert into users(id, name, email, city) values (2, "Amy Murphy", "amurphy@outlook.com", "Minneapolis");
-insert into users(id, name, email, city) values (3, "Amy Clark", "aclark@yahoo.com", "St. Louis");
-insert into users(id, name, email, city) values (4, "Amy Ramirez", "aramirez@gmail.com", "Denver");
+insert into users(id, name, email, city) values (3, "Amy 哈哈", "aclark@yahoo.com", "St. Louis");
+insert into users(id, name, email, city) values (4, "Amy 数据", "aramirez@gmail.com", "Denver");
 insert into users(id, name, email, city) values (5, "Amy Roberts", "aroberts@outlook.com", "Springfield");
 insert into users(id, name, email, city) values (6, "Amy Richardson", "arichardson@netgloo.com", "Miami");
 insert into users(id, name, email, city) values (7, "Amy Bailey", "abailey@gmail.com", "San Jose");

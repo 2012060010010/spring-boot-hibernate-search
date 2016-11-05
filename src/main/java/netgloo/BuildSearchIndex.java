@@ -11,11 +11,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * The only meaning for this class is to build the Lucene index at application
- * startup. This is needed in this example because the database is filled 
- * before and each time the web application is started. In a normal web 
- * application probably you don't need to do this.
- * 
- * @author netgloo
+ * startup.
  */
 @Component
 public class BuildSearchIndex
@@ -47,7 +43,7 @@ implements ApplicationListener<ApplicationReadyEvent> {
     }
     catch (InterruptedException e) {
       System.out.println(
-        "An error occurred trying to build the serach index: " +
+        "An error occurred trying to build the search index: " +
          e.toString());
     }
     return;
