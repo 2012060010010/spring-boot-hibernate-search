@@ -4,6 +4,32 @@
 <head>
   <title>Baigle Search | tech and science </title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <style type="text/css">
+    .sidebar a:link {
+      color:#00FF00;
+      text-decoration:underline;
+    }
+    .sidebar a:visited {
+      color:#FF0000;
+      text-decoration:none;
+    }
+    .sidebar a:hover {
+      color:#000000;
+      text-decoration:none;
+    }
+    .sidebar a:active {
+      color:#FFFFFF;
+      text-decoration:none;
+    }
+    .span1{
+      color: #3c3c3c;
+      font-size: 15px;
+    }
+    .span2{
+      color: #5e5e5e;
+      font-size: 13px;
+    }
+  </style>
 </head>
 
 <body>
@@ -13,14 +39,25 @@
 
 <!--</table>-->
 
+<div style="width: 800px;">
   <ol>
-    <li th:each="users : ${searchResults}">
-      <b><span th:text="${users.name}"></span></b> -
-      <span th:text="${users.city}"></span> -
-      <span th:text="${users.email}"></span>
+    <li th:each="Document : ${searchResults}">
+      <!--<a href="http://www.w3school.com.cn">W3School</a>-->
+      <!--<b><span th:text="${Document.title}"></span></b>-->
+      <!--<div id="sidebar"><a href="http://www.jb51.net" target="_blank">链接到脚本之家<a></div>-->
+      <!--<div><a href="http://www.jb51.net" target="_blank" class="redlink" >链接到脚本之家一<a></div>-->
+      <!--<div id="sidebar"><a href="http://www.jb51.net" target="_blank">链接到脚本之家<a></div>-->
+
+      <div ><b><a th:href="${Document.docurl}" target="_blank" class="sidebar"> <span th:text="${Document.title}"></span></a></b></div>
+      <div style="height: 3px;"></div>
+      <span class="span1" th:text="${Document.desp}"></span>
+      <a th:href="${Document.docurl}" target="_blank"> <span th:text="${Document.docurl}"></span></a>
+      <br><span class="span2" th:text="${Document.source}"></span></br>
+      <div style="height: 6px;"></div>
     </li>
   </ol>
-  
+</div>
+
   <p th:if="${searchResults.isEmpty()}">
     <strong>Hint no results</strong>: the query like"<a href='/search?q=amy'>amy</a>"
     should return some results.
@@ -30,6 +67,7 @@
   <hr />
   Proudly provided by
   <a >charm</a>
+
 
 </body>
 

@@ -7,6 +7,7 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 import netgloo.models.User;
+import netgloo.models.Document;
 
 import org.hibernate.search.jpa.FullTextEntityManager;
 import org.hibernate.search.query.dsl.QueryBuilder;
@@ -33,7 +34,7 @@ public class UserSearch {
    * 
    * @param text The query text.
    */
-  public List<User> search(String text) {
+  public List<Document> search(String text) {//User
     
     // get the full text entity manager
     FullTextEntityManager fullTextEntityManager =
@@ -43,23 +44,23 @@ public class UserSearch {
     // create the query using Hibernate Search query DSL
     QueryBuilder queryBuilder = 
       fullTextEntityManager.getSearchFactory()
-      .buildQueryBuilder().forEntity(User.class).get();
+      .buildQueryBuilder().forEntity(Document.class).get();//User
     
     // a very basic query by keywords
     org.apache.lucene.search.Query query =
       queryBuilder
         .keyword()
-        .onFields("name", "city", "email")
+        .onFields("title", "desp", "source","docurl")
         .matching(text)
         .createQuery();
 
     // wrap Lucene query in an Hibernate Query object
     org.hibernate.search.jpa.FullTextQuery jpaQuery =
-      fullTextEntityManager.createFullTextQuery(query, User.class);
+      fullTextEntityManager.createFullTextQuery(query, Document.class);//User
   
     // execute search and return results (sorted by relevance as default)
     @SuppressWarnings("unchecked")
-    List<User> results = jpaQuery.getResultList();
+    List<Document> results = jpaQuery.getResultList();//User
     
     return results;
   } // method search

@@ -1,6 +1,7 @@
 package netgloo.controllers;
 
-import netgloo.models.User;
+import netgloo.models.Document;
+//import netgloo.models.User;
 import netgloo.search.UserSearch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,7 +37,7 @@ public class MainController {
    */
   @RequestMapping("/search")
   public String search(@RequestParam("q") String q, Model model) {
-    List<User> searchResults = null;
+    List<Document> searchResults = null;//User
     try {
       searchResults = userSearch.search(q);
     }

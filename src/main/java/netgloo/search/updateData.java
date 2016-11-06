@@ -36,24 +36,25 @@ public class updateData {
             psql = con.prepareStatement("TRUNCATE TABLE Document");
             psql.executeUpdate();
             Document docarray[]=refreshFileList("/Users/chengangbao/lucene/lucene_doc");
-            for(int i=0;i<docarray.length;i++){
+            for(int i=48;i<docarray.length;i++){
                 //String title = new String(docarray[i].getTitle().getBytes("ISO-8859-1"),"utf-8");
 //                title = new String(title.getBytes("ISO-8859-1"),"utf-8");
 //                title = new String(title.getBytes("ISO-8859-1"),"utf-8");
 //                title = new String(title.getBytes("ISO-8859-1"),"utf-8");
-                psql = con.prepareStatement("insert into Document values(?,?,?,?)");
+               // if(i==47){continue;}
+                psql = con.prepareStatement("insert into Document values(?,?,?,?,?)");
 
-                //psql.setInt(1,i+1);
-                psql.setString(1, docarray[i].getTitle());
-                psql.setString(2, docarray[i].getDesp());
+                psql.setInt(1,i+1);
+                psql.setString(2, docarray[i].getTitle());
                 psql.setString(3, docarray[i].getSource());
-                psql.setString(4, docarray[i].getDocurl());
+                psql.setString(4, docarray[i].getDesp());
+                psql.setString(5, docarray[i].getDocurl());
                 psql.executeUpdate();			//执行更新
-//                System.out.println(i);
-                System.out.println("标题：  "+docarray[i].getTitle());
-                System.out.println("描述:  "+docarray[i].getDesp());
-                System.out.println("源头:  "+docarray[i].getSource());
-                System.out.println("URL:   "+docarray[i].getDocurl());
+                //System.out.println(i);
+//                System.out.println("标题：  "+docarray[i].getTitle());
+//                System.out.println("描述:  "+docarray[i].getDesp());
+//                System.out.println("源头:  "+docarray[i].getSource());
+//                System.out.println("URL:   "+docarray[i].getDocurl());
             }
 
 
@@ -64,9 +65,9 @@ public class updateData {
             String sql = "select * from Document";
             //3.ResultSet类，用来存放获取的结果集！！
             ResultSet rs = statement.executeQuery(sql);
-            System.out.println("-----------------");
-            System.out.println("执行结果如下所示:");
-            System.out.println("-----------------");
+//            System.out.println("-----------------");
+//            System.out.println("执行结果如下所示:");
+//            System.out.println("-----------------");
 
             String id = null;
             String title = null;
@@ -78,12 +79,12 @@ public class updateData {
                 //获取stuname这列数据
                 //id= rs.getString("docID");
                 //获取stuid这列数据
-                title = rs.getString("docTitle");
-                desp = rs.getString("docDesp");
-                source = rs.getString("docSource");
-                docurl = rs.getString("docUrl");
-                System.out.println(i++);
-                System.out.println(title+" || " + desp+ " || " + source +" || "+docurl);
+                title = rs.getString("title");
+                desp = rs.getString("desp");
+                source = rs.getString("source");
+                docurl = rs.getString("docurl");
+//                System.out.println(i++);
+//                System.out.println(title+" || " + desp+ " || " + source +" || "+docurl);
             }
             //rs.close();
             con.close();
