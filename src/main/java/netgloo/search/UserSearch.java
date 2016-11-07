@@ -59,9 +59,26 @@ public class UserSearch {
       fullTextEntityManager.createFullTextQuery(query, Document.class);//User
   
     // execute search and return results (sorted by relevance as default)
-    @SuppressWarnings("unchecked")
+//    List<Document> results = jpaQuery.getResultList();//User
+    jpaQuery.setFirstResult(0);
+    jpaQuery.setMaxResults(10);
     List<Document> results = jpaQuery.getResultList();//User
-    
+    for(int i=0;i<results.size();i++){
+      Document doc=results.get(i);
+      System.out.println("doc title is :"+doc.getTitle());
+    }
+//    //设置返回的结果个数
+//    hibQuery.setFirstResult(10); //start from the 15th element从哪里开始
+//    hibQuery.setMaxResults(3); //return 10 elements  返回个数
+//
+//
+//    List result = hibQuery.list();
+//    for(int i=0;i<result.size();i++)
+//    {
+//      BasicCar bc3 = (BasicCar) result.get(i);
+//      System.out.println("id for the selected basiccar is:"
+//              +bc3.getId());
+//    }
     return results;
   } // method search
 } // class
