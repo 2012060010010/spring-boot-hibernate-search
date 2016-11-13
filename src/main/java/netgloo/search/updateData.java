@@ -35,8 +35,8 @@ public class updateData {
 
             psql = con.prepareStatement("TRUNCATE TABLE Document");
             psql.executeUpdate();
-            Document docarray[]=refreshFileList("/Users/chengangbao/lucene/lucene_doc");
-            for(int i=48;i<docarray.length;i++){
+            Document docarray[]=refreshFileList("/Users/chengangbao/lucene/tech_data");
+            for(int i=0;i<docarray.length;i++){
                 //String title = new String(docarray[i].getTitle().getBytes("ISO-8859-1"),"utf-8");
 //                title = new String(title.getBytes("ISO-8859-1"),"utf-8");
 //                title = new String(title.getBytes("ISO-8859-1"),"utf-8");
@@ -57,37 +57,35 @@ public class updateData {
 //                System.out.println("URL:   "+docarray[i].getDocurl());
             }
 
-
-
-            //2.创建statement类对象，用来执行SQL语句！！
-            Statement statement = con.createStatement();
-            //要执行的SQL语句
-            String sql = "select * from Document";
-            //3.ResultSet类，用来存放获取的结果集！！
-            ResultSet rs = statement.executeQuery(sql);
-//            System.out.println("-----------------");
-//            System.out.println("执行结果如下所示:");
+//            //2.创建statement类对象，用来执行SQL语句！！
+//            Statement statement = con.createStatement();
+//            //要执行的SQL语句
+//            String sql = "select * from Document";
+//            //3.ResultSet类，用来存放获取的结果集！！
+//            ResultSet rs = statement.executeQuery(sql);
+////            System.out.println("-----------------");
+//              System.out.println(rs.getFetchSize());
 //            System.out.println("-----------------");
 
-            String id = null;
-            String title = null;
-            String desp = null;
-            String source = null;
-            String docurl = null;
-            int i=0;
-            while(rs.next()){
-                //获取stuname这列数据
-                //id= rs.getString("docID");
-                //获取stuid这列数据
-                title = rs.getString("title");
-                desp = rs.getString("desp");
-                source = rs.getString("source");
-                docurl = rs.getString("docurl");
-//                System.out.println(i++);
-//                System.out.println(title+" || " + desp+ " || " + source +" || "+docurl);
-            }
-            //rs.close();
-            con.close();
+//            String id = null;
+//            String title = null;
+//            String desp = null;
+//            String source = null;
+//            String docurl = null;
+//            int i=0;
+//            while(rs.next()){
+//                //获取stuname这列数据
+//                //id= rs.getString("docID");
+//                //获取stuid这列数据
+//                title = rs.getString("title");
+//                desp = rs.getString("desp");
+//                source = rs.getString("source");
+//                docurl = rs.getString("docurl");
+////                System.out.println(i++);
+////                System.out.println(title+" || " + desp+ " || " + source +" || "+docurl);
+//            }
+//            rs.close();
+//            con.close();
         } catch(ClassNotFoundException e) {
             //数据库驱动类异常处理
             System.out.println("Sorry,can`t find the Driver!");

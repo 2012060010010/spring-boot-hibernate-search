@@ -57,6 +57,13 @@
       <version>4.5.1.Final</version>
     </dependency>
 
+    <!--&lt;!&ndash; Maven artifact identifier for Hibernate Search &ndash;&gt;-->
+    <!--<dependency>-->
+      <!--<groupId>org.apdplat</groupId>-->
+      <!--<artifactId>word</artifactId>-->
+      <!--<version>1.2</version>-->
+    <!--</dependency>-->
+
     <!-- Optional: to use JPA 2.1 -->
     <dependency>
       <groupId>org.hibernate</groupId>

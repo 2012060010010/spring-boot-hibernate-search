@@ -1,11 +1,21 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:jsp="http://java.sun.com/JSP/Page">
 
 <head>
   <title>Baigle Search | tech and science </title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <!-- 新 Bootstrap 核心 CSS 文件 -->
+  <!--&lt;!&ndash; 新 Bootstrap 核心 CSS 文件 &ndash;&gt;-->
+  <!--<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css"/>-->
 
+  <!--&lt;!&ndash; 可选的Bootstrap主题文件（一般不用引入） &ndash;&gt;-->
+  <!--<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css"/>-->
+
+  <!--&lt;!&ndash; jQuery文件。务必在bootstrap.min.js 之前引入 &ndash;&gt;-->
+  <!--<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>-->
+
+  <!--&lt;!&ndash; 最新的 Bootstrap 核心 JavaScript 文件 &ndash;&gt;-->
+  <!--<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>-->
   <style type="text/css">
     .sidebar11 a:link {
       color: #484891;
@@ -36,10 +46,13 @@
 
 <body>
 
-<!--<table class="table table-hover">-->
-  <!--<tr th:each="users : ${searchResults}"><td><b><span th:text="${users.name}"></span></b>      </td><td><span th:text="${users.city}"></span> </td><td><span th:text="${users.email}"></span></td></tr>-->
+<div style="width: 800px;">
+  time is ms:
+  <span class="span2" th:text="${time}"></span>
+  results count is :
+  <span class="span2" th:text="${resultCount}"></span>
+</div>
 
-<!--</table>-->
 
 <div style="width: 800px;">
   <ol>
@@ -55,21 +68,44 @@
       <span class="span1" th:text="${Document.desp}"></span>
       <a th:href="${Document.docurl}" target="_blank"> <span th:text="${Document.docurl}"></span></a>
       <br><span class="span2" th:text="${Document.source}"></span></br>
+
       <div style="height: 6px;"></div>
     </li>
   </ol>
 </div>
 
-  <p th:if="${searchResults.isEmpty()}">
-    <strong>Hint no results</strong>: the query like"<a href='/search?q=amy'>amy</a>"
+<p th:if="${searchResults.isEmpty()}">
+    <strong>Hint no results</strong>: the query like"<a href='/search?q=vr'>vr</a>"
     should return some results.
   </p>
-  
-  <br />
-  <hr />
+ <div style="font-size: 12px" align="center">
+  <jsp:include file="pagenation.jsp" ></jsp:include>>
+ </div>
+<br />
+<!--<div align="center">-->
+  <!--<form class="navbar-form" role="form" align="center" action="page" method="post">-->
+    <!--<nav>-->
+      <!--<ul class="pagination">-->
+        <!--<li class="disabled"><a href="#">&laquo;</a></li>-->
+        <!--<li class="active"><a type="submit" id="a1" name="a" href="#">1 <span class="sr-only">(current)</span></a></li>-->
+        <!--<li class="active"><a type="submit" id="a2" name="a" href="#" >2 <span class="sr-only">(current)</span></a></li>-->
+        <!--<li class="active"><a type="submit" id="a3" name="a" href="#" >3 <span class="sr-only">(current)</span></a></li>-->
+        <!--<li class="active"><a type="submit" id="a4" name="a" href="#" >4 <span class="sr-only">(current)</span></a></li>-->
+        <!--<li class="active"><a type="submit" id="a5" name="a" href="#" >5 <span class="sr-only">(current)</span></a></li>-->
+      <!--</ul>-->
+    <!--</nav>-->
+  <!--</form>-->
+<!--</div>-->
+
   Proudly provided by
   <a >charm</a>
+<!--<script>-->
+  <!--postid(id){-->
+    <!--var s;-->
+    <!--s= id.innerText;-->
+  <!--}-->
 
+<!--</script>-->
 </body>
 
 </html>

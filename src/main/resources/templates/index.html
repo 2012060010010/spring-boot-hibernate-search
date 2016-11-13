@@ -24,12 +24,6 @@
       <div class="container">
         <div class="page-header">
           <h1 align="center">Baigle</h1>
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form" role="form" align="center" action="search" method="post">
@@ -37,10 +31,25 @@
               <input type="text" id="q" name="q" placeholder="在这里搜索" class="from-control input-lg"/>
             </div>
             <button type="submit" id="submit" class="btn btn-lg btn-primary">搜索</button>
-            <button type="submit" name="cancel" class="btn btn-lg btn-primary" onclick="javascript:history.back(-1);">取消</button>
+            <!--<button type="submit" name="cancel" class="btn btn-lg btn-primary" onclick="javascript:history.back(-1);">重置</button>-->
           </form>
         </div><!--/.navbar-collapse -->
       </div>
+      <br />
+      <br />
+     <div align="center">
+       <label id="noinput"></label>
+       <script>
+        var text =  document.getElementById("q").value;
+        var btn1 = document.getElementById("submit")
+        btn1.addEventListener("click", function() {
+          if(text==""){
+            document.getElementById("noinput").innerText="您得告诉我要搜索的问题呀～科技类的新闻～";
+          }
+        });
+        </script>
+     </div>
+
 
   </body>
 </html>
